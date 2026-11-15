@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>腾龙公司官方网站 - 官网</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+      color: #1a1a1a;
+      background: #f5f2ee;
+      line-height: 1.6;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* ===== 头部 ===== */
+    header {
+      background: #0d0d0d;
+      color: #fff;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid #c9a84c;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo-area { display: flex; align-items: center; gap: 12px; }
+    .logo-area img { height: 40px; width: auto; object-fit: contain; }
+    .logo-text { font-size: 24px; font-weight: 700; letter-spacing: 4px; color: #c9a84c; }
+    .logo-text span { color: #fff; font-weight: 300; font-size: 14px; letter-spacing: 2px; margin-left: 8px; }
+
+    /* 顶部客服信息 */
+    .top-contact {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: #c9a84c; /* 金色字体 */
+      font-weight: 500;
+    }
+    .top-contact span { display: flex; align-items: center; gap: 6px; }
+    
+    nav a {
+      color: #ddd; text-decoration: none; margin-left: 28px;
+      font-size: 15px; transition: color 0.3s;
+    }
+    nav a:hover { color: #c9a84c; }
+
+    /* ===== Hero (使用 3.jpg 作为背景) ===== */
+    .hero {
+      background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.8)), 
+                  url('images/3.jpg') center/cover no-repeat;
+      color: #fff;
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+    }
+    .hero h1 { font-size: 56px; font-weight: 700; letter-spacing: 8px; margin-bottom: 16px; position: relative; }
+    .hero h1 em { font-style: normal; color: #c9a84c; }
+    .hero p { font-size: 18px; color: #e0e0e0; max-width: 680px; margin: 0 auto 40px; position: relative; letter-spacing: 1px; }
+    .hero-badge {
+      display: inline-block; border: 1px solid #c9a84c; color: #c9a84c;
+      padding: 10px 40px; font-size: 15px; letter-spacing: 3px; position: relative; transition: all 0.3s;
+    }
+    .hero-badge:hover { background: #c9a84c; color: #0d0d0d; }
+
+    /* ===== 通用区块 ===== */
+    .section { padding: 80px 0; }
+    .section-title { text-align: center; margin-bottom: 56px; }
+    .section-title h2 {
+      font-size: 34px; font-weight: 700; letter-spacing: 3px;
+      color: #1a1a1a; position: relative; display: inline-block; padding-bottom: 16px;
+    }
+    .section-title h2::after {
+      content: ''; position: absolute; bottom: 0; left: 50%;
+      transform: translateX(-50%); width: 60px; height: 3px; background: #c9a84c;
+    }
+    .section-title p { color: #888; font-size: 15px; margin-top: 12px; letter-spacing: 1px; }
+
+    /* ===== 新闻动态 ===== */
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .news-card {
+      background: #fff; padding: 36px 30px; border-top: 3px solid #c9a84c;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: transform 0.3s;
+    }
+    .news-card:hover { transform: translateY(-6px); }
+    .news-date { font-size: 13px; color: #c9a84c; letter-spacing: 2px; margin-bottom: 12px; }
+    .news-card h3 { font-size: 19px; margin-bottom: 12px; font-weight: 600; }
+    .news-card p { font-size: 14px; color: #666; line-height: 1.7; }
+
+    /* ===== 尊享礼遇 ===== */
+    .offer-section { background: #0d0d0d; color: #fff; }
+    .offer-section .section-title h2 { color: #fff; }
+    .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .offer-card {
+      background: linear-gradient(145deg, #1a1a1a, #111); border: 1px solid #2a2a2a;
+      padding: 40px 30px; text-align: center; transition: border-color 0.3s;
+    }
+    .offer-card:hover { border-color: #c9a84c; }
+    .offer-label {
+      display: inline-block; font-size: 12px; letter-spacing: 2px;
+      color: #c9a84c; border: 1px solid #c9a84c; padding: 4px 14px; margin-bottom: 20px;
+    }
+    .offer-card h3 { font-size: 20px; margin-bottom: 16px; font-weight: 600; }
+    .offer-card p { font-size: 14px; color: #aaa; line-height: 1.8; }
+
+    /* ===== 公司简介 (使用 1.jpg) ===== */
+    .about-section { background: #fff; }
+    .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .about-text h2 { font-size: 32px; font-weight: 700; letter-spacing: 2px; margin-bottom: 24px; }
+    .about-text h2 em { font-style: normal; color: #c9a84c; }
+    .about-text p { font-size: 15px; color: #555; line-height: 2; margin-bottom: 16px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+    .stat-item { text-align: center; padding: 24px 12px; background: #faf8f5; border-bottom: 2px solid #c9a84c; }
+    .stat-num { font-size: 34px; font-weight: 700; color: #c9a84c; display: block; }
+    .stat-label { font-size: 13px; color: #888; margin-top: 6px; }
+    
+    .about-visual {
+      height: 380px; border: 1px solid #e8e2d8; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .about-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ===== 产品展示 (使用 2, 4, 5 等) ===== */
+    .products-section { background: #f5f2ee; }
+    .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .product-card {
+      background: #fff; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); transition: transform 0.3s;
+    }
+    .product-card:hover { transform: translateY(-4px); }
+    
+    .product-img { height: 260px; overflow: hidden; background: #eee; }
+    .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    
+    .product-info { padding: 30px; }
+    .product-cat { font-size: 12px; color: #c9a84c; letter-spacing: 2px; margin-bottom: 8px; }
+    .product-info h3 { font-size: 20px; margin-bottom: 12px; font-weight: 600; }
+    .product-info p { font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 16px; }
+    .product-tags span {
+      display: inline-block; font-size: 12px; color: #999;
+      border: 1px solid #e0dcd5; padding: 4px 12px; margin-right: 8px; margin-bottom: 6px;
+    }
+
+    /* ===== 历史时间线 ===== */
+    .history-section { background: #0d0d0d; color: #fff; }
+    .history-section .section-title h2 { color: #fff; }
+    .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+    .timeline::before {
+      content: ''; position: absolute; left: 50%; transform: translateX(-50%);
+      top: 0; bottom: 0; width: 1px; background: #333;
+    }
+    .timeline-item { display: flex; justify-content: flex-end; padding: 20px 0; width: 50%; position: relative; }
+    .timeline-item:nth-child(even) { justify-content: flex-start; margin-left: 50%; }
+    .timeline-content { background: #1a1a1a; border: 1px solid #2a2a2a; padding: 28px 30px; width: 85%; position: relative; }
+    .timeline-item:nth-child(odd) .timeline-content { margin-right: 40px; }
+    .timeline-item:nth-child(even) .timeline-content { margin-left: 40px; }
+    .timeline-year { font-size: 24px; font-weight: 700; color: #c9a84c; margin-bottom: 8px; }
+    .timeline-content p { font-size: 14px; color: #aaa; line-height: 1.7; }
+    .timeline-item::after {
+      content: ''; position: absolute; top: 50%; transform: translateY(-50%);
+      width: 14px; height: 14px; background: #c9a84c; border-radius: 50%; border: 3px solid #0d0d0d;
+    }
+    .timeline-item:nth-child(odd)::after { right: -7px; }
+    .timeline-item:nth-child(even)::after { left: -7px; }
+
+    /* ===== 客服中心 ===== */
+    .contact-section { background: #f5f2ee; }
+    .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .contact-card {
+      background: #fff; padding: 40px 30px; text-align: center;
+      border-bottom: 3px solid #c9a84c; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+    .contact-card .icon { font-size: 36px; margin-bottom: 16px; }
+    .contact-card h3 { font-size: 17px; font-weight: 600; margin-bottom: 12px; }
+    .contact-card p { font-size: 15px; color: #666; word-break: break-all; }
+    .contact-card .highlight { color: #c9a84c; font-weight: 600; font-size: 17px; }
+
+    /* ===== 负责人 ===== */
+    .leader-section { background: #0d0d0d; color: #fff; text-align: center; }
+    .leader-section h2 { font-size: 30px; letter-spacing: 3px; margin-bottom: 12px; }
+    .leader-section .sub { color: #999; font-size: 15px; margin-bottom: 40px; }
+    .wechat-box {
+      display: inline-flex; align-items: center; gap: 16px;
+      background: #1a1a1a; border: 1px solid #c9a84c; padding: 20px 48px;
+      font-size: 22px; letter-spacing: 2px; color: #c9a84c; font-weight: 600;
+    }
+    .wechat-note { color: #777; font-size: 14px; margin-top: 20px; letter-spacing: 1px; }
+
+    /* ===== 页脚 ===== */
+    footer {
+      background: #080808; color: #666; text-align: center;
+      padding: 36px 0; font-size: 13px; border-top: 1px solid #1a1a1a;
+    }
+    footer span { color: #c9a84c; }
+
+    /* ===== 响应式适配 ===== */
+    @media (max-width: 1024px) {
+      .top-contact { display: none; } /* 屏幕变小隐藏顶部客服信息，防止拥挤 */
+    }
+    @media (max-width: 900px) {
+      .news-grid, .offer-grid, .contact-grid, .product-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 36px; letter-spacing: 4px; }
+      nav a { margin-left: 16px; font-size: 13px; }
+    }
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; gap: 12px; }
+      nav a { margin: 0 10px; }
+      .hero { padding: 60px 0 50px; }
+      .hero h1 { font-size: 28px; }
+      .section { padding: 50px 0; }
+      .wechat-box { font-size: 18px; padding: 16px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== 头部 ===== -->
+<header>
+  <div class="container header-inner">
+    <div class="logo-area">
+      <img src="images/log1.jpg" alt="腾龙Logo">
+      <div class="logo-text">腾龙<span>诚信赢天下</span></div>
+    </div>
+    
+    <!-- 新增的顶部客服信息（电话/QQ/微信） -->
+    <div class="top-contact">
+      <span>📞 热线微信同步: 17517443076</span>
+      <span>✉ 官方QQ: 2514901983</span>
+      <span>💬 微信助理: NoeP-0506</span>
+    </div>
+
+    <nav>
+      <a href="#">首页</a>
+      <a href="#">最新动态</a>
+      <a href="#">尊享礼遇</a>
+      <a href="#">产品展示</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero (使用 3.jpg 作为背景) ===== -->
+<section class="hero">
+  <div class="container">
+    <h1>腾龙 <em>诚信赢天下</em></h1>
+    <p>传承尊贵基因，开拓时代疆界。腾龙公司——全球高端会员制奢华品牌，珠宝·超跑·智慧生态·私人俱乐部。</p>
+    <div class="hero-badge">尊享 · 卓越 · 永恒</div>
+  </div>
+</section>
+
+<!-- ===== 新闻动态 ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>腾龙公司 · 最新动态</h2>
+      <p>洞察前沿，见证荣耀时刻</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-date">2025年4月15日</div>
+        <h3>腾龙国际峰会圆满落幕</h3>
+        <p>全球伙伴齐聚一堂，共探商业革新，引领奢华行业风向。</p>
+      </div>
+      <div class="news-card">
+        <div class="news-date">2025年3月28日</div>
+        <h3>荣获亚洲卓越企业大奖</h3>
+        <p>腾龙凭借创新与可持续发展理念，荣获“年度最具价值品牌”。</p>
+      </div>
+      <div class="news-card">
+        <div class="news-date">2025年3月10日</div>
+        <h3>全球尊贵会员日启动</h3>
+        <p>专属礼遇、奢享体验，腾龙会员体系全新升级，无限荣耀开启。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 尊享礼遇 ===== -->
+<section class="section offer-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>尊享礼遇 · 限时优惠</h2>
+      <p>专属奢宠，只为尊贵的您</p>
+    </div>
+    <div class="offer-grid">
+      <div class="offer-card">
+        <div class="offer-label">新品限定</div>
+        <h3>新会员首充 双倍积分</h3>
+        <p>注册腾龙尊贵会员，首次充值享双倍积分，兑换限量豪礼与私人管家服务。</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-label">限量名额</div>
+        <h3>腾龙·云端私享会</h3>
+        <p>会员消费满额即可参与“地中海奢华游艇之旅”，尊享五星礼遇。</p>
+      </div>
+      <div class="offer-card">
+        <div class="offer-label">周年庆典</div>
+        <h3>感恩回馈 全场高定8折</h3>
+        <p>腾龙27周年庆，精选产品系列尊享8折，叠加会员积分翻倍。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 公司简介 (使用 1.jpg) ===== -->
+<section class="section about-section">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text">
+        <h2>腾龙公司 · <em>创造无限可能</em></h2>
+        <p>自1998年创立起，腾龙始终以创新为驱动，打破边界，融合科技与奢华。从高端珠宝腕表到智慧生态，我们不断定义卓越。业务遍及全球50多个国家和地区，服务超过200万尊贵会员。</p>
+        <div class="stats-grid">
+          <div class="stat-item"><span class="stat-num">50+</span><div class="stat-label">国家布局</div></div>
+          <div class="stat-item"><span class="stat-num">200W+</span><div class="stat-label">尊贵会员</div></div>
+          <div class="stat-item"><span class="stat-num">18项</span><div class="stat-label">国际专利</div></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <img src="images/1.jpg" alt="腾龙典藏">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 产品展示 (使用 2, 4, 5 等) ===== -->
+<section class="section products-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>典藏 · 产品展示</h2>
+      <p>匠心之作，定义奢华新高度</p>
+    </div>
+    <div class="product-grid">
+      <!-- 产品 1 使用 2.jpg -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/2.jpg" alt="腾龙·臻钻系列"></div>
+        <div class="product-info">
+          <div class="product-cat">高定珠宝</div>
+          <h3>腾龙·臻钻系列</h3>
+          <p>采用哥伦比亚祖母绿与南非臻稀钻石，意大利匠人纯手工镶嵌，每件独立编号，璀璨永恒。</p>
+          <div class="product-tags"><span>GIA认证</span><span>限量38件</span></div>
+        </div>
+      </div>
+      
+      <!-- 产品 2 使用 4.jpg -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/4.jpg" alt="腾龙·御风座驾"></div>
+        <div class="product-info">
+          <div class="product-cat">极致驾控</div>
+          <h3>腾龙·御风座驾</h3>
+          <p>全球限量99台，2.5秒破百，航空级碳纤维内饰，速度与奢华的巅峰之作。</p>
+          <div class="product-tags"><span>1050马力</span><span>智能四驱</span></div>
+        </div>
+      </div>
+      
+      <!-- 产品 3 使用 5.jpg -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/5.jpg" alt="腾龙·智慧生态"></div>
+        <div class="product-info">
+          <div class="product-cat">未来科技</div>
+          <h3>腾龙·智慧生态</h3>
+          <p>全屋AI智能管家，红点设计大奖，零碳认证，可持续奢华新典范。</p>
+          <div class="product-tags"><span>AI深度学习</span><span>零碳认证</span></div>
+        </div>
+      </div>
+      
+      <!-- 产品 4 循环使用 3.jpg -->
+      <div class="product-card">
+        <div class="product-img"><img src="images/3.jpg" alt="腾龙·私享俱乐部"></div>
+        <div class="product-info">
+          <div class="product-cat">圈子文化</div>
+          <h3>腾龙·私享俱乐部</h3>
+          <p>全球仅500席顶级私人会籍，私人飞机托管、米其林星厨晚宴、全球度假村无限次入住。</p>
+          <div class="product-tags"><span>一对一管家</span><span>全球联盟</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 荣耀传承 ===== -->
+<section class="section history-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>荣耀传承 · 腾龙历史</h2>
+      <p>二十余载，铸就传奇</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">1998</div>
+          <p>腾龙初创 — 在香港创立，以国际贸易起家，奠定诚信基石。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2008</div>
+          <p>全球化扩展 — 进驻欧美市场，成立奢侈品事业部，品牌享誉国际。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2018</div>
+          <p>科技腾飞 — 发布首款智能生态产品，开启“无限可能”战略布局。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-content">
+          <div class="timeline-year">2024</div>
+          <p>尊贵会员体系升级 — 全球统一尊贵会员服务，重新定义高端生活方式。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 贵宾客服中心 (保留了你截图里的最新内容) ===== -->
+<section class="section contact-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>贵宾客服中心</h2>
+      <p>腾龙专属客服团队7x24小时为尊贵会员提供一对一咨询服务，尊享极致响应。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <h3>热线电话微信同步</h3>
+        <p class="highlight">17517443076</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">✉️</div>
+        <h3>官方QQ</h3>
+        <p>2514901983</p>
+      </div>
+      <div class="contact-card">
+        <div class="icon">💬</div>
+        <h3>微信助理</h3>
+        <p class="highlight">NoeP-0506</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 联系负责人 ===== -->
+<section class="section leader-section">
+  <div class="container">
+    <h2>联系负责人</h2>
+    <p class="sub">添加腾龙官方负责人微信，尊享专属服务</p>
+    <div class="wechat-box">
+      <span class="icon">💬</span>
+      <span>NoeP-0506</span>
+    </div>
+    <p class="wechat-note">24h 智能管家 · 优先权益</p>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer>
+  <div class="container">
+    © 2025 <span>腾龙公司</span> 版权所有 · 创造无限可能
+  </div>
+</footer>
+
+</body>
+</html>
